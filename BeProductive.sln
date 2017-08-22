@@ -6,10 +6,20 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeProductive.Core", "BeProductive.Core\BeProductive.Core.csproj", "{0AE12F80-B068-4BF5-B2F3-087B8A114A63}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeProductive.Api", "BeProductive.Api\BeProductive.Api.csproj", "{C1F6CAC9-AD0E-454B-AC4B-E23ABFE5048C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7091B5B2-EC24-4E77-B913-F7BCB1CE1351} = {7091B5B2-EC24-4E77-B913-F7BCB1CE1351}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeProductive.Infrastructure", "BeProductive.Infrastructure\BeProductive.Infrastructure.csproj", "{7091B5B2-EC24-4E77-B913-F7BCB1CE1351}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0AE12F80-B068-4BF5-B2F3-087B8A114A63} = {0AE12F80-B068-4BF5-B2F3-087B8A114A63}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeProductive.Tests", "BeProductive.Tests\BeProductive.Tests.csproj", "{7ED72104-FBA5-47A1-9A5B-F7478D394C32}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0AE12F80-B068-4BF5-B2F3-087B8A114A63} = {0AE12F80-B068-4BF5-B2F3-087B8A114A63}
+		{7091B5B2-EC24-4E77-B913-F7BCB1CE1351} = {7091B5B2-EC24-4E77-B913-F7BCB1CE1351}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeProductive.Tests.EndToEnd", "BeProductive.Tests.EndToEnd\BeProductive.Tests.EndToEnd.csproj", "{F2E5A89B-579D-4384-AB69-4C675D42A898}"
 EndProject
