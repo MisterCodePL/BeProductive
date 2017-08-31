@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BeProductive.Core.Repositories
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
         User Get(string email);
         User Get(Guid id);

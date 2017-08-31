@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace BeProductive.Core.Domain
 {
-    class User
+    public class User
     {
         public Guid Id { get; protected set; }
         public string Email { get; protected set; }
@@ -38,7 +38,7 @@ namespace BeProductive.Core.Domain
         public void SetEmail(string email)
         {
             var address = new MailAddress(email);
-            if (address != null) Email = email;
+            if (address != null) Email = email.ToLowerInvariant();
             else throw new Exception("Email address is incorrect.");
         }
 
