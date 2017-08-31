@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BeProductive.Core\BeProductive.Core.csproj" />
+  </ItemGroup>
+
 </Project>
