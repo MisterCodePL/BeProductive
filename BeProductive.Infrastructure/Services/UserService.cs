@@ -1,6 +1,7 @@
 ﻿using BeProductive.Core.Domain;
 using BeProductive.Core.Repositories;
 using System;
+using BeProductive.Infrastructure.DTO;
 
 namespace BeProductive.Infrastructure.Services
 {
@@ -11,6 +12,20 @@ namespace BeProductive.Infrastructure.Services
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        public UserDto Get(string email)
+        {
+            var user = _userRepository.Get(email);
+            return new UserDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Username = user.Username,
+                FullName = user.FullName,
+                CreatedAt = user.CreatedAt,
+                Events = user.Events
+            };       
         }
 
         public void Register(string email, string username, string password)
