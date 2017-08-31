@@ -6,15 +6,15 @@ namespace BeProductive.Core.Domain
 {
     class User
     {
-        public Guid Id { get; private set; }
-        public string Email { get; private set; }
-        public string Password { get; private set; }
-        public string Salt { get; private set; }
-        public string Username { get; private set; }
-        public string FullName { get; private set; }
-        public DateTime CreatedAt { get; private set; }
+        public Guid Id { get; protected set; }
+        public string Email { get; protected set; }
+        public string Password { get; protected set; }
+        public string Salt { get; protected set; }
+        public string Username { get; protected set; }
+        public string FullName { get; protected set; }
+        public DateTime CreatedAt { get; protected set; }
 
-        public IEnumerable<Event> Events { get; private set; } 
+        public IEnumerable<Event> Events { get; protected set; } 
         
         protected User()
         {

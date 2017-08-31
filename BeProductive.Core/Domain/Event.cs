@@ -4,12 +4,12 @@ namespace BeProductive.Core.Domain
 {
     public class Event
     {
-        public Guid Id { get; private set; }
-        public Guid OwnerId { get; private set; }
-        public string Name { get; private set; }
-        public DateTime StartAt { get; private set; }
-        public DateTime EndAt { get; private set; }
-        public string Description { get; private set; }
+        public Guid Id { get; protected set; }
+        public Guid OwnerId { get; protected set; }
+        public string Name { get; protected set; }
+        public DateTime StartAt { get; protected set; }
+        public DateTime EndAt { get; protected set; }
+        public string Description { get; protected set; }
 
 
         protected Event()
@@ -24,7 +24,7 @@ namespace BeProductive.Core.Domain
             SetEndAt(endAt);
         }
 
-        private void SetOwnerId(Guid ownerId)
+        protected void SetOwnerId(Guid ownerId)
         {
             if (ownerId != null) OwnerId = ownerId;
             else throw new NullReferenceException();
