@@ -12,6 +12,6 @@ namespace BeProductive.Infrastructure.DTO
         public string FullName { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public IEnumerable<Event> Events { get; set; }
+        public IEnumerable<EventDto> Events { get; set; }
     }
 }
