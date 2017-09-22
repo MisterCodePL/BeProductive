@@ -10,11 +10,11 @@ namespace BeProductive.Infrastructure.Repositories
     {
         private static ISet<User> _users = new HashSet<User>
         {
-            new User("user1@gmail.com","user1","secret123456789","salt"),
-            new User("user2@gmail.com","user2","secret123456789","salt"),
-            new User("user3@gmail.com","user3","secret123456789","salt"),
-            new User("user4@gmail.com","user4","secret123456789","salt"),
-            new User("user5@gmail.com","user5","secret123456789","salt"),
+            new User("user1@gmail.com","user1","secreT123456789","salt"),
+            new User("user2@gmail.com","user2","secreT123456789","salt"),
+            new User("user3@gmail.com","user3","secreT123456789","salt"),
+            new User("user4@gmail.com","user4","secreT123456789","salt"),
+            new User("user5@gmail.com","user5","secreT123456789","salt"),
         };
 
         public void Add(User user)

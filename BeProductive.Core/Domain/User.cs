@@ -53,7 +53,7 @@ namespace BeProductive.Core.Domain
             if (email == null) throw new ArgumentNullException();
             if (Email == email.ToLowerInvariant()) return;
             var address = new MailAddress(email);
-            if (address != null) throw new Exception("Email address is incorrect.");
+            if (address == null) throw new Exception("Email address is incorrect.");
             Email = email.ToLowerInvariant();
             UpdateStatus();
         }

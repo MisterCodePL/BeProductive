@@ -28,6 +28,8 @@ namespace BeProductive.Api
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, InMemoryUserRepository>();
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IEventRepository, InMemoryEventRepository>();
             services.AddMvc();
         }
 
