@@ -2,6 +2,7 @@
 using BeProductive.Core.Repositories;
 using System;
 using BeProductive.Infrastructure.DTO;
+using System.Collections.Generic;
 
 namespace BeProductive.Infrastructure.Services
 {
@@ -24,7 +25,8 @@ namespace BeProductive.Infrastructure.Services
                 Username = user.Username,
                 FullName = user.FullName,
                 CreatedAt = user.CreatedAt,
-                Events = user.Events
+                
+                //Events = user.Events
             };       
         }
 

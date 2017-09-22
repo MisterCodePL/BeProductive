@@ -10,7 +10,7 @@ namespace BeProductive.Infrastructure.Repositories
     {
         private static ISet<Event> _events = new HashSet<Event>
         {
-            new Event(Guid.NewGuid(), "event1", DateTime.Now,DateTime.Now.AddDays(1)),
+            new Event(Guid.NewGuid(), "event1", DateTime.Now, DateTime.Now.AddDays(1)),
             new Event(Guid.NewGuid(), "event2", DateTime.Now.AddDays(1),DateTime.Now.AddDays(2)),
             new Event(Guid.NewGuid(), "event3", DateTime.Now.AddDays(2),DateTime.Now.AddDays(3)),
             new Event(Guid.NewGuid(), "event4", DateTime.Now.AddDays(3),DateTime.Now.AddDays(4)),
