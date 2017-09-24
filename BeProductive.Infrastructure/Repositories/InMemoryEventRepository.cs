@@ -25,7 +25,7 @@ namespace BeProductive.Infrastructure.Repositories
         }
 
         public async Task<Event> GetAsync(Guid id)
-            => await Task.FromResult(_events.Single(x => x.Id == id));
+            => await Task.FromResult(_events.SingleOrDefault(x => x.Id == id));
 
         public async Task<IEnumerable<Event>> GetAllAsync()
             => await Task.FromResult(_events);
