@@ -1,10 +1,11 @@
 ﻿using BeProductive.Infrastructure.DTO;
+using System.Threading.Tasks;
 
 namespace BeProductive.Infrastructure.Services
 {
     public interface IUserService
     {
-        void Register(string email, string username, string password);
-        UserDto Get(string email);
+        Task RegisterAsync(string email, string username, string password);
+        Task<UserDto> GetAsync(string email);
     }
 }

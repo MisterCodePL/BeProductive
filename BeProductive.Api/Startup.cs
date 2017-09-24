@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using BeProductive.Infrastructure.Services;
 using BeProductive.Infrastructure.Repositories;
 using BeProductive.Core.Repositories;
+using BeProductive.Infrastructure.Mappers;
 
 namespace BeProductive.Api
 {
@@ -30,6 +31,7 @@ namespace BeProductive.Api
             services.AddScoped<IUserRepository, InMemoryUserRepository>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IEventRepository, InMemoryEventRepository>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddMvc();
         }
 

@@ -1,6 +1,7 @@
 ﻿using BeProductive.Infrastructure.DTO;
 using BeProductive.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BeProductive.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace BeProductive.Api.Controllers
         }
 
         [HttpGet("{email}")]
-        public UserDto Get(string email)
-          => _userService.Get(email);
+        public async Task<UserDto> GetAsync(string email)
+          => await _userService.GetAsync(email);
     }
 }

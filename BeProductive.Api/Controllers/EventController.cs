@@ -2,6 +2,7 @@
 using BeProductive.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace BeProductive.Api.Controllers
 {
@@ -16,7 +17,7 @@ namespace BeProductive.Api.Controllers
         }
 
         [HttpGet("{email}")]
-        public EventDto Get(Guid id)
-          => _eventService.Get(id);
+        public async Task<EventDto> GetAsync(Guid id)
+          => await _eventService.GetAsync(id);
     }
 }

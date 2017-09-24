@@ -1,39 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using BeProductive.Infrastructure.DTO;
 using BeProductive.Core.Repositories;
 using BeProductive.Core.Domain;
+using AutoMapper;
+using System.Threading.Tasks;
 
 namespace BeProductive.Infrastructure.Services
 {
     public class EventService : IEventService
     {
         private readonly IEventRepository _eventRepository;
+        private readonly IMapper _mapper;
 
-        public EventService(IEventRepository eventRepository)
+        public EventService(IEventRepository eventRepository, IMapper mapper)
         {
             _eventRepository = eventRepository;
+            _mapper = mapper;
         }
 
-        public void Add(Guid ownerId, string name, DateTime startAt, DateTime endAt)
+        public async Task AddAsync(Guid ownerId, string name, DateTime startAt, DateTime endAt)
         {
             var _event = new Event(ownerId, name, startAt, endAt);
-            _eventRepository.Add(_event);
+            await _eventRepository.AddAsync(_event);
         }
 
-        public EventDto Get(Guid id)
+        public async Task<EventDto> GetAsync(Guid id)
         {
-            var _event = _eventRepository.Get(id);
-            return new EventDto
-            {
-                Id = _event.Id,
-                Name = _event.Name,
-                Description = _event.Description,
-                EndAt = _event.EndAt,
-                OwnerId = _event.OwnerId,
-                StartAt = _event.StartAt
-            };
+            var _event = await _eventRepository.GetAsync(id);
+            return _mapper.Map<Event, EventDto>(_event);
         }
     }
 }

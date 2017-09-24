@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BeProductive.Core.Domain;
 using BeProductive.Core.Repositories;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BeProductive.Infrastructure.Repositories
 {
@@ -17,27 +18,30 @@ namespace BeProductive.Infrastructure.Repositories
             new Event(Guid.NewGuid(), "event5", DateTime.Now.AddDays(4),DateTime.Now.AddDays(5))
         };
 
-        public void Add(Event _event)
+        public async Task AddAsync(Event _event)
         {
             _events.Add(_event);
+            await Task.CompletedTask;
         }
 
-        public Event Get(Guid id)
-            => _events.Single(x => x.Id == id);
+        public async Task<Event> GetAsync(Guid id)
+            => await Task.FromResult(_events.Single(x => x.Id == id));
 
-        public IEnumerable<Event> GetAll()
-            => _events;
+        public async Task<IEnumerable<Event>> GetAllAsync()
+            => await Task.FromResult(_events);
 
-        public IEnumerable<Event> GetUserEvents(Guid ownerId)
-            => _events.Where(x => x.OwnerId == ownerId);
+        public async Task<IEnumerable<Event>> GetUserEventsAsync(Guid ownerId)
+            => await Task.FromResult(_events.Where(x => x.OwnerId == ownerId));
 
-        public void Remove(Guid id)
+        public async Task RemoveAsync(Guid id)
         {
-            _events.Remove(Get(id));
+            _events.Remove(await GetAsync(id));
+            await Task.CompletedTask;
         }
 
-        public void Update(Event _event)
+        public async Task UpdateAsync(Event _event)
         {
+            await Task.CompletedTask;
         }
     }
 }
